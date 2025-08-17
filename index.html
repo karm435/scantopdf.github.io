@@ -1,3 +1,215 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperly - Turn Images into PDFs Instantly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+                    <img src="assets/appIcon.png" alt="Paperly" class="logo-img">
+                    <span class="logo-text">Paperly</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#download" class="nav-link">Download</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="termsofuse.html" class="nav-link">Terms</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Turn Images into PDFs 
+                    <span class="gradient-text">Instantly</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Paperly is the best "PDF maker app". Easily create PDF files from your images with "Image to PDF Converter" Paperly. Select photos from your gallery or scan paper documents using your camera.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        <img src="assets/appstore.png" alt="App Store" class="btn-icon">
+                        Download on App Store
+                    </a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/screenshot/Hero.jpg" alt="Paperly App" class="hero-img">
+                <div class="floating-card floating-card-1">
+                    <img src="assets/screenshot/iPhone/PDF Maker app.jpg" alt="PDF Maker">
+                </div>
+                <div class="floating-card floating-card-2">
+                    <img src="assets/screenshot/iPhone/Text OCR.jpg" alt="Text OCR">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need to transform your images into professional PDFs</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <img src="assets/screenshot/iPhone/CApture.jpg" alt="Capture">
+                    </div>
+                    <h3>Smart Capture</h3>
+                    <p>Select photos from your gallery or scan paper documents using your camera. Combine them into a single PDF file and keep everything organized.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <img src="assets/screenshot/iPhone/Text OCR.jpg" alt="OCR">
+                    </div>
+                    <h3>Advanced OCR</h3>
+                    <p>Extract text from images in one go. Get perfect text recognition with smart search that highlights searched words and automatically scrolls to results.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <img src="assets/screenshot/iPhone/AI Powered Chat.jpg" alt="AI Chat">
+                    </div>
+                    <h3>AI Chat with PDF</h3>
+                    <p>Chat with your PDF and ask questions about the content. The AI replies based on your loaded images and documents.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <img src="assets/screenshot/iPhone/Print and Share.jpg" alt="Share">
+                    </div>
+                    <h3>Print & Share</h3>
+                    <p>Save, share, or print your files instantly. Manage PDF quality from settings and keep your documents clean and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Three simple steps to create your PDF</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Select Images</h3>
+                        <p>Choose photos from your gallery or capture new ones with the camera</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Process & Convert</h3>
+                        <p>Our advanced OCR extracts text and converts everything to PDF format</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Download & Share</h3>
+                        <p>Get your PDF instantly and share it with anyone, anywhere</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Download Paperly now and transform how you handle paper and image documents every day.</p>
+                <div class="download-buttons">
+                    <a href="#" class="btn btn-primary btn-large">
+                        <img src="assets/appstore.png" alt="App Store" class="btn-icon">
+                        Download on App Store
+                    </a>
+                </div>
+                <div class="device-support">
+                    <span>📱 iPhone</span>
+                    <span>📱 iPad</span>
+                    <span>💻 macOS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/appIcon.png" alt="Paperly" class="footer-logo-img">
+                        <span>Paperly</span>
+                    </div>
+                    <p>Turn images into PDFs instantly. The best PDF maker app for iOS and iPadOS.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="presskit.html">Press Kit</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paperly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

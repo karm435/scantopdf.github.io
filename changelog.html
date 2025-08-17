@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Paperly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+    <style>
+        .changelog-hero {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+        
+        .changelog-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+        
+        .changelog-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .changelog-section {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .changelog-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .version-card {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 32px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .version-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        
+        .version-header {
+            background: var(--background-secondary);
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .version-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .version-date {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .version-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .version-type.major {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .version-type.minor {
+            background: #fd7e14;
+            color: white;
+        }
+        
+        .version-type.patch {
+            background: #28a745;
+            color: white;
+        }
+        
+        .version-content {
+            padding: 24px;
+        }
+        
+        .version-content h3 {
+            font-size: 18px;
+            margin: 20px 0 12px;
+            color: var(--text-primary);
+        }
+        
+        .version-content ul {
+            margin: 0 0 16px 20px;
+        }
+        
+        .version-content li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .version-content .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            margin: 16px 0;
+        }
+        
+        .version-content .highlight p {
+            margin: 0;
+            color: #856404;
+        }
+        
+        .changelog-nav {
+            background: var(--background-secondary);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin-bottom: 32px;
+        }
+        
+        .changelog-nav h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .version-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .version-link {
+            padding: 8px 16px;
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .version-link:hover {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            border-color: var(--accent-color);
+        }
+        
+        .version-link.active {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            border-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .changelog-hero h1 {
+                font-size: 32px;
+            }
+            
+            .changelog-hero p {
+                font-size: 18px;
+            }
+            
+            .version-links {
+                flex-direction: column;
+            }
+            
+            .version-link {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+                    <img src="assets/appIcon.png" alt="Paperly" class="logo-img">
+                    <span class="logo-text">Paperly</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#download" class="nav-link">Download</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="termsofuse.html" class="nav-link">Terms</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Changelog Hero -->
+    <section class="changelog-hero">
+        <div class="container">
+            <h1>Changelog</h1>
+            <p>Track the evolution of Paperly with our detailed release notes and version history</p>
+        </div>
+    </section>
+
+    <!-- Changelog Section -->
+    <section class="changelog-section">
+        <div class="container">
+            <div class="changelog-container">
+                <!-- Changelog Navigation -->
+                <div class="changelog-nav">
+                    <h3>Quick Navigation</h3>
+                    <div class="version-links">
+                        <a href="#v1.0.0" class="version-link active">v1.0.0</a>
+                        <a href="#v0.9.0" class="version-link">v0.9.0</a>
+                        <a href="#v0.8.0" class="version-link">v0.8.0</a>
+                        <a href="#v0.7.0" class="version-link">v0.7.0</a>
+                        <a href="#v0.6.0" class="version-link">v0.6.0</a>
+                    </div>
+                </div>
+
+                <!-- Version 1.0.0 -->
+                <div class="version-card" id="v1.0.0">
+                    <div class="version-header">
+                        <div class="version-number">Version 1.0.0</div>
+                        <div class="version-date">December 15, 2024</div>
+                        <span class="version-type major">Major Release</span>
+                    </div>
+                    <div class="version-content">
+                        <div class="highlight">
+                            <p><strong>🎉 Paperly is now officially launched!</strong> This major release brings our vision of intelligent document management to life with cutting-edge features and a polished user experience.</p>
+                        </div>
+                        
+                        <h3>✨ New Features</h3>
+                        <ul>
+                            <li><strong>AI-Powered Chat:</strong> Revolutionary feature allowing users to chat with their PDF content and ask questions about documents</li>
+                            <li><strong>Advanced OCR Engine:</strong> Significantly improved text recognition accuracy with support for multiple languages</li>
+                            <li><strong>Smart Search:</strong> Intelligent search functionality that highlights searched words and provides navigation between results</li>
+                            <li><strong>iPad Optimization:</strong> Full iPadOS support with optimized interface and touch interactions</li>
+                            <li><strong>macOS Compatibility:</strong> Native macOS app with seamless iCloud sync</li>
+                        </ul>
+                        
+                        <h3>🚀 Performance Improvements</h3>
+                        <ul>
+                            <li>50% faster PDF generation compared to previous versions</li>
+                            <li>Optimized memory usage for large document processing</li>
+                            <li>Improved app launch time and overall responsiveness</li>
+                            <li>Enhanced battery efficiency during extended use</li>
+                        </ul>
+                        
+                        <h3>🎨 UI/UX Enhancements</h3>
+                        <ul>
+                            <li>Complete redesign following modern iOS design principles</li>
+                            <li>Dark mode support with automatic system preference detection</li>
+                            <li>Improved accessibility features and VoiceOver support</li>
+                            <li>Customizable interface themes and color schemes</li>
+                        </ul>
+                        
+                        <h3>🔒 Security & Privacy</h3>
+                        <ul>
+                            <li>All document processing now happens locally on device</li>
+                            <li>Enhanced encryption for stored documents</li>
+                            <li>Improved permission handling and user control</li>
+                            <li>Privacy-focused design with minimal data collection</li>
+                        </ul>
+                        
+                        <h3>📱 Platform Support</h3>
+                        <ul>
+                            <li>iOS 14.0+ support</li>
+                            <li>iPadOS 14.0+ support</li>
+                            <li>macOS 11.0+ support</li>
+                            <li>Universal app with seamless cross-device sync</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 0.9.0 -->
+                <div class="version-card" id="v0.9.0">
+                    <div class="version-header">
+                        <div class="version-number">Version 0.9.0</div>
+                        <div class="version-date">December 1, 2024</div>
+                        <span class="version-type minor">Beta Release</span>
+                    </div>
+                    <div class="version-content">
+                        <h3>✨ New Features</h3>
+                        <ul>
+                            <li>Beta version of AI chat functionality</li>
+                            <li>Enhanced OCR accuracy improvements</li>
+                            <li>New document organization system</li>
+                            <li>Cloud storage integration (iCloud, Dropbox)</li>
+                        </ul>
+                        
+                        <h3>🐛 Bug Fixes</h3>
+                        <ul>
+                            <li>Fixed PDF generation issues on certain devices</li>
+                            <li>Resolved memory leaks during large file processing</li>
+                            <li>Fixed crash when switching between apps</li>
+                            <li>Improved error handling for corrupted images</li>
+                        </ul>
+                        
+                        <h3>🔧 Technical Improvements</h3>
+                        <ul>
+                            <li>Updated to latest iOS SDK</li>
+                            <li>Improved app performance and stability</li>
+                            <li>Enhanced error logging and crash reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 0.8.0 -->
+                <div class="version-card" id="v0.8.0">
+                    <div class="version-header">
+                        <div class="version-number">Version 0.8.0</div>
+                        <div class="version-date">November 15, 2024</div>
+                        <span class="version-type minor">Beta Release</span>
+                    </div>
+                    <div class="version-content">
+                        <h3>✨ New Features</h3>
+                        <ul>
+                            <li>Smart search functionality with word highlighting</li>
+                            <li>Document quality settings and customization</li>
+                            <li>Batch processing for multiple images</li>
+                            <li>Export options for various file formats</li>
+                        </ul>
+                        
+                        <h3>🎨 UI Improvements</h3>
+                        <ul>
+                            <li>Redesigned main interface</li>
+                            <li>Improved navigation and user flow</li>
+                            <li>Better visual feedback and animations</li>
+                            <li>Enhanced accessibility features</li>
+                        </ul>
+                        
+                        <h3>🐛 Bug Fixes</h3>
+                        <ul>
+                            <li>Fixed image rotation issues</li>
+                            <li>Resolved PDF formatting problems</li>
+                            <li>Fixed app freezing on large documents</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 0.7.0 -->
+                <div class="version-card" id="v0.7.0">
+                    <div class="version-header">
+                        <div class="version-number">Version 0.7.0</div>
+                        <div class="version-date">November 1, 2024</div>
+                        <span class="version-type minor">Beta Release</span>
+                    </div>
+                    <div class="version-content">
+                        <h3>✨ New Features</h3>
+                        <ul>
+                            <li>OCR text extraction from images</li>
+                            <li>Document editing and annotation tools</li>
+                            <li>File sharing and collaboration features</li>
+                            <li>Document history and versioning</li>
+                        </ul>
+                        
+                        <h3>🔧 Technical Improvements</h3>
+                        <ul>
+                            <li>Improved image processing algorithms</li>
+                            <li>Better memory management</li>
+                            <li>Enhanced error handling</li>
+                            <li>Performance optimizations</li>
+                        </ul>
+                        
+                        <h3>🐛 Bug Fixes</h3>
+                        <ul>
+                            <li>Fixed camera capture issues</li>
+                            <li>Resolved PDF corruption problems</li>
+                            <li>Fixed app crashes on older devices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Version 0.6.0 -->
+                <div class="version-card" id="v0.6.0">
+                    <div class="version-header">
+                        <div class="version-number">Version 0.6.0</div>
+                        <div class="version-date">October 15, 2024</div>
+                        <span class="version-type minor">Beta Release</span>
+                    </div>
+                    <div class="version-content">
+                        <h3>✨ New Features</h3>
+                        <ul>
+                            <li>Basic image-to-PDF conversion</li>
+                            <li>Camera integration for document scanning</li>
+                            <li>Photo library access</li>
+                            <li>Simple PDF viewer</li>
+                        </ul>
+                        
+                        <h3>🎨 UI Features</h3>
+                        <ul>
+                            <li>Clean, minimal interface design</li>
+                            <li>Intuitive user experience</li>
+                            <li>Responsive design for different screen sizes</li>
+                        </ul>
+                        
+                        <h3>🔧 Foundation</h3>
+                        <ul>
+                            <li>Core app architecture</li>
+                            <li>Basic document processing</li>
+                            <li>File management system</li>
+                            <li>Settings and preferences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Future Plans -->
+                <div class="version-card">
+                    <div class="version-header">
+                        <div class="version-number">Future Plans</div>
+                        <div class="version-date">Coming Soon</div>
+                        <span class="version-type major">Roadmap</span>
+                    </div>
+                    <div class="version-content">
+                        <h3>🚀 Upcoming Features</h3>
+                        <ul>
+                            <li><strong>Multi-language Support:</strong> OCR and interface in multiple languages</li>
+                            <li><strong>Advanced AI Features:</strong> Document summarization and intelligent categorization</li>
+                            <li><strong>Collaboration Tools:</strong> Real-time document sharing and editing</li>
+                            <li><strong>Advanced Export Options:</strong> Support for more file formats and cloud services</li>
+                            <li><strong>Enterprise Features:</strong> Team management and advanced security options</li>
+                        </ul>
+                        
+                        <h3>📱 Platform Expansion</h3>
+                        <ul>
+                            <li>Android app development</li>
+                            <li>Web application</li>
+                            <li>Windows desktop app</li>
+                            <li>API for third-party integrations</li>
+                        </ul>
+                        
+                        <h3>🔧 Technical Improvements</h3>
+                        <ul>
+                            <li>Machine learning enhancements</li>
+                            <li>Cloud processing options</li>
+                            <li>Advanced security features</li>
+                            <li>Performance optimizations</li>
+                        </ul>
+                        
+                        <div class="highlight">
+                            <p><strong>💡 Have a feature request?</strong> We'd love to hear from you! Send your suggestions to <a href="mailto:feedback@paperly.app" style="color: #856404;">feedback@paperly.app</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/appIcon.png" alt="Paperly" class="footer-logo-img">
+                        <span>Paperly</span>
+                    </div>
+                    <p>Turn images into PDFs instantly. The best PDF maker app for iOS and iPadOS.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="presskit.html">Press Kit</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paperly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Changelog navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const versionLinks = document.querySelectorAll('.version-link');
+            const versionCards = document.querySelectorAll('.version-card');
+            
+            // Smooth scroll to version sections
+            versionLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 120; // Account for navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active link
+                        versionLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Update active link based on scroll position
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY + 150;
+                
+                versionCards.forEach((card, index) => {
+                    const cardTop = card.offsetTop;
+                    const cardBottom = cardTop + card.offsetHeight;
+                    
+                    if (scrollPosition >= cardTop && scrollPosition < cardBottom) {
+                        versionLinks.forEach(l => l.classList.remove('active'));
+                        if (versionLinks[index]) {
+                            versionLinks[index].classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

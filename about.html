@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Paperly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+    <style>
+        .about-hero {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+        
+        .about-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+        
+        .about-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .mission-section {
+            background: var(--background-secondary);
+            padding: 80px 0;
+        }
+        
+        .mission-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .mission-container h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .mission-container p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .value-card {
+            background: var(--background);
+            padding: 32px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--secondary-color);
+        }
+        
+        .value-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .value-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .team-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .team-container h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        
+        .team-container p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+        
+        .contact-section {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-container h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-container p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-btn {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+            
+            .about-hero h1,
+            .mission-container h2,
+            .team-container h2,
+            .contact-container h2 {
+                font-size: 32px;
+            }
+            
+            .about-hero p,
+            .mission-container p,
+            .team-container p {
+                font-size: 16px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+                    <img src="assets/appIcon.png" alt="Paperly" class="logo-img">
+                    <span class="logo-text">Paperly</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#download" class="nav-link">Download</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="termsofuse.html" class="nav-link">Terms</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Paperly</h1>
+            <p>Discover the story behind the best PDF maker app that's revolutionizing how people handle documents</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>Paperly was born from a simple yet powerful idea: making document management effortless and accessible to everyone. We recognized that in today's digital world, people still struggle with paper documents, receipts, and handwritten notes.</p>
+                        <p>Our team of developers and designers came together with a shared vision to create an app that would bridge the gap between physical and digital documents. We wanted to build something that wasn't just functional, but delightful to use.</p>
+                        <p>What started as a simple image-to-PDF converter has evolved into a comprehensive document management solution that millions of users rely on every day.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/screenshot/iPhone/PDF Maker app.jpg" alt="Paperly App Interface">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-container">
+                <h2>Our Mission</h2>
+                <p>At Paperly, we believe that everyone deserves access to professional-quality document tools. Our mission is to simplify the way people work with documents, making it possible for anyone to create, organize, and share PDFs with ease.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card" data-aos="fade-up">
+                        <div class="value-icon">🚀</div>
+                        <h3>Innovation</h3>
+                        <p>We constantly push the boundaries of what's possible, exploring new technologies like AI and advanced OCR to deliver cutting-edge features.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="value-icon">👥</div>
+                        <h3>User-First</h3>
+                        <p>Every feature we build starts with understanding our users' needs. We prioritize simplicity and intuitive design in everything we create.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="value-icon">🔒</div>
+                        <h3>Privacy</h3>
+                        <p>We believe your documents are personal. That's why we process everything locally on your device and never store your private information.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="value-icon">🌍</div>
+                        <h3>Accessibility</h3>
+                        <p>We're committed to making our app accessible to everyone, regardless of their technical background or device preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-container">
+                <h2>Our Team</h2>
+                <p>Paperly is built by a passionate team of developers, designers, and product experts who are dedicated to creating the best possible experience for our users. We come from diverse backgrounds but share a common goal: making document management simple and enjoyable.</p>
+                
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h3>Development Excellence</h3>
+                        <p>Our engineering team combines deep technical expertise with a passion for user experience. We use the latest technologies and best practices to ensure Paperly is fast, reliable, and secure.</p>
+                    </div>
+                    <div class="about-content">
+                        <h3>Design Innovation</h3>
+                        <p>Our design team focuses on creating interfaces that are both beautiful and intuitive. We follow modern design principles and conduct extensive user research to ensure every interaction feels natural.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <h2>Get in Touch</h2>
+                <p>Have questions, suggestions, or just want to say hello? We'd love to hear from you. Our team is always eager to connect with our users and improve Paperly based on your feedback.</p>
+                <a href="mailto:hello@paperly.app" class="contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/appIcon.png" alt="Paperly" class="footer-logo-img">
+                        <span>Paperly</span>
+                    </div>
+                    <p>Turn images into PDFs instantly. The best PDF maker app for iOS and iPadOS.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="presskit.html">Press Kit</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paperly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press Kit - Paperly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+    <style>
+        .press-hero {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+        
+        .press-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+        
+        .press-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .press-section {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .press-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .press-content h2 {
+            font-size: 32px;
+            margin: 48px 0 24px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+        
+        .press-content h3 {
+            font-size: 24px;
+            margin: 32px 0 16px;
+            color: var(--text-primary);
+        }
+        
+        .press-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        
+        .press-content ul {
+            margin: 16px 0 16px 20px;
+        }
+        
+        .press-content li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
+        }
+        
+        .download-card {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-color);
+        }
+        
+        .download-card h4 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .download-card p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .download-btn {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .media-item {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .media-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .media-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .media-item-info {
+            padding: 16px;
+        }
+        
+        .media-item-info h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .media-item-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .contact-section {
+            background: var(--background-secondary);
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .contact-card {
+            background: var(--background);
+            padding: 32px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        
+        .contact-card p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+        
+        .contact-card .contact-email {
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .contact-card .contact-email:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .press-hero h1 {
+                font-size: 32px;
+            }
+            
+            .press-hero p {
+                font-size: 18px;
+            }
+            
+            .press-content h2 {
+                font-size: 28px;
+            }
+            
+            .press-content h3 {
+                font-size: 20px;
+            }
+            
+            .download-grid,
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+                    <img src="assets/appIcon.png" alt="Paperly" class="logo-img">
+                    <span class="logo-text">Paperly</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#download" class="nav-link">Download</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="termsofuse.html" class="nav-link">Terms</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Press Kit Hero -->
+    <section class="press-hero">
+        <div class="container">
+            <h1>Press Kit</h1>
+            <p>Media resources, company information, and assets for journalists and content creators</p>
+        </div>
+    </section>
+
+    <!-- Press Kit Content -->
+    <section class="press-section">
+        <div class="container">
+            <div class="press-container">
+                <div class="press-content">
+                    <h2>About Paperly</h2>
+                    <p>Paperly is the best "PDF maker app" that revolutionizes how people handle documents. Our app allows users to turn images into PDFs instantly, with advanced OCR technology, AI-powered chat features, and seamless document management.</p>
+                    
+                    <p>Founded with the mission to simplify document workflows, Paperly has become the go-to solution for professionals, students, and anyone who needs to convert images to professional PDF documents quickly and efficiently.</p>
+
+                    <h2>Key Facts</h2>
+                    <ul>
+                        <li><strong>App Name:</strong> Paperly</li>
+                        <li><strong>Category:</strong> Productivity / Document Management</li>
+                        <li><strong>Platforms:</strong> iOS, iPadOS, macOS</li>
+                        <li><strong>Launch Date:</strong> 2024</li>
+                        <li><strong>Core Feature:</strong> Image-to-PDF conversion with OCR</li>
+                        <li><strong>Unique Selling Point:</strong> AI-powered chat with PDF content</li>
+                    </ul>
+
+                    <h2>Company Story</h2>
+                    <p>Paperly was born from a simple yet powerful idea: making document management effortless and accessible to everyone. We recognized that in today's digital world, people still struggle with paper documents, receipts, and handwritten notes.</p>
+                    
+                    <p>Our team of developers and designers came together with a shared vision to create an app that would bridge the gap between physical and digital documents. What started as a simple image-to-PDF converter has evolved into a comprehensive document management solution that millions of users rely on every day.</p>
+
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li><strong>Smart Capture:</strong> Select photos from gallery or scan documents using camera</li>
+                        <li><strong>Advanced OCR:</strong> Extract text from images with high accuracy</li>
+                        <li><strong>AI Chat:</strong> Ask questions about your PDF content</li>
+                        <li><strong>Smart Search:</strong> Find specific words with automatic highlighting</li>
+                        <li><strong>Quality Control:</strong> Adjust PDF quality settings as needed</li>
+                        <li><strong>Offline Functionality:</strong> Work without internet connection</li>
+                    </ul>
+
+                    <h2>Download Media Assets</h2>
+                    <div class="download-grid">
+                        <div class="download-card">
+                            <h4>App Icon</h4>
+                            <p>High-resolution app icon in various formats</p>
+                            <a href="assets/appIcon.png" download class="download-btn">Download Icon</a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <h4>iPhone Screenshots</h4>
+                            <p>App screenshots from iPhone devices</p>
+                            <a href="assets/screenshot/iPhone/" class="download-btn">View Screenshots</a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <h4>iPad Screenshots</h4>
+                            <p>App screenshots from iPad devices</p>
+                            <a href="assets/screenshot/iPad/" class="download-btn">View Screenshots</a>
+                        </div>
+                        
+                        <div class="download-card">
+                            <h4>Hero Images</h4>
+                            <p>High-quality hero and promotional images</p>
+                            <a href="assets/screenshot/Hero.jpg" download class="download-btn">Download Hero</a>
+                        </div>
+                    </div>
+
+                    <h2>Media Gallery</h2>
+                    <div class="media-gallery">
+                        <div class="media-item">
+                            <img src="assets/screenshot/iPhone/PDF Maker app.jpg" alt="PDF Maker Interface">
+                            <div class="media-item-info">
+                                <h4>PDF Maker Interface</h4>
+                                <p>Main app interface showing PDF creation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="media-item">
+                            <img src="assets/screenshot/iPhone/Text OCR.jpg" alt="OCR Text Extraction">
+                            <div class="media-item-info">
+                                <h4>OCR Text Extraction</h4>
+                                <p>Text recognition and extraction features</p>
+                            </div>
+                        </div>
+                        
+                        <div class="media-item">
+                            <img src="assets/screenshot/iPhone/AI Powered Chat.jpg" alt="AI Chat Feature">
+                            <div class="media-item-info">
+                                <h4>AI Chat Feature</h4>
+                                <p>AI-powered chat with PDF content</p>
+                            </div>
+                        </div>
+                        
+                        <div class="media-item">
+                            <img src="assets/screenshot/iPhone/Print and Share.jpg" alt="Print and Share">
+                            <div class="media-item-info">
+                                <h4>Print and Share</h4>
+                                <p>Document sharing and printing options</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Company Information</h2>
+                    <ul>
+                        <li><strong>Company Name:</strong> Paperly</li>
+                        <li><strong>Industry:</strong> Mobile Applications / Productivity Software</li>
+                        <li><strong>Business Model:</strong> Freemium with premium subscription</li>
+                        <li><strong>Target Audience:</strong> Professionals, students, small businesses</li>
+                        <li><strong>Key Markets:</strong> Global, with focus on English-speaking countries</li>
+                        <li><strong>Technology Stack:</strong> Native iOS development, AI/ML integration</li>
+                    </ul>
+
+                    <h2>Recent News & Updates</h2>
+                    <ul>
+                        <li><strong>December 2024:</strong> Paperly launches with advanced OCR capabilities</li>
+                        <li><strong>December 2024:</strong> AI-powered chat feature introduced</li>
+                        <li><strong>December 2024:</strong> iPad optimization and macOS compatibility added</li>
+                        <li><strong>December 2024:</strong> Smart search functionality launched</li>
+                    </ul>
+
+                    <h2>Quotes</h2>
+                    <div style="background: var(--background-secondary); padding: 24px; border-radius: var(--border-radius); margin: 24px 0; border-left: 4px solid var(--accent-color);">
+                        <p style="font-style: italic; font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">
+                            "Paperly represents a fundamental shift in how people think about document management. We're not just converting images to PDFs – we're making documents intelligent and interactive."
+                        </p>
+                        <p style="margin: 0; color: var(--text-secondary);">
+                            — Paperly Development Team
+                        </p>
+                    </div>
+
+                    <div style="background: var(--background-secondary); padding: 24px; border-radius: var(--border-radius); margin: 24px 0; border-left: 4px solid var(--accent-color);">
+                        <p style="font-style: italic; font-size: 18px; margin-bottom: 16px; color: var(--text-primary);">
+                            "Our mission is to democratize professional document tools. Everyone deserves access to powerful, easy-to-use software that makes their work more efficient."
+                        </p>
+                        <p style="margin: 0; color: var(--text-secondary);">
+                            — Paperly Mission Statement
+                        </p>
+                    </div>
+
+                    <h2>Technical Specifications</h2>
+                    <ul>
+                        <li><strong>Minimum iOS Version:</strong> iOS 14.0</li>
+                        <li><strong>Minimum iPadOS Version:</strong> iPadOS 14.0</li>
+                        <li><strong>Minimum macOS Version:</strong> macOS 11.0</li>
+                        <li><strong>App Size:</strong> Varies by device (~50-100MB)</li>
+                        <li><strong>Languages:</strong> English (additional languages planned)</li>
+                        <li><strong>Storage:</strong> Local device storage with cloud integration options</li>
+                    </ul>
+
+                    <h2>Press Contact</h2>
+                    <p>For media inquiries, interview requests, or additional information, please contact our press team:</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Press Inquiries</h3>
+                    <p>For media interviews, press releases, and general press questions</p>
+                    <a href="mailto:press@paperly.app" class="contact-email">press@paperly.app</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Business Partnerships</h3>
+                    <p>For business development, partnerships, and collaboration opportunities</p>
+                    <a href="mailto:partnerships@paperly.app" class="contact-email">partnerships@paperly.app</a>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>General Information</h3>
+                    <p>For general questions about Paperly and our company</p>
+                    <a href="mailto:hello@paperly.app" class="contact-email">hello@paperly.app</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/appIcon.png" alt="Paperly" class="footer-logo-img">
+                        <span>Paperly</span>
+                    </div>
+                    <p>Turn images into PDFs instantly. The best PDF maker app for iOS and iPadOS.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="presskit.html">Press Kit</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paperly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

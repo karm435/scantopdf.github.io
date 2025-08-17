@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Paperly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+    <style>
+        .faq-hero {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 120px 0 80px;
+        }
+        
+        .faq-hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+        
+        .faq-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-section {
+            padding: 80px 0;
+            background: var(--background);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+        
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--background-secondary);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .faq-toggle::before,
+        .faq-toggle::after {
+            content: '';
+            position: absolute;
+            background: currentColor;
+            transition: var(--transition);
+        }
+        
+        .faq-toggle::before {
+            width: 2px;
+            height: 16px;
+            top: 4px;
+            left: 11px;
+        }
+        
+        .faq-toggle::after {
+            width: 16px;
+            height: 2px;
+            top: 11px;
+            left: 4px;
+        }
+        
+        .faq-item.active .faq-toggle::before {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--border-color);
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--secondary-color);
+        }
+        
+        .faq-item[data-category] {
+            display: block;
+        }
+        
+        .faq-item.hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 32px;
+            }
+            
+            .faq-hero p {
+                font-size: 18px;
+            }
+            
+            .faq-categories {
+                gap: 12px;
+            }
+            
+            .category-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+                    <img src="assets/appIcon.png" alt="Paperly" class="logo-img">
+                    <span class="logo-text">Paperly</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#download" class="nav-link">Download</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="termsofuse.html" class="nav-link">Terms</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Paperly - the best PDF maker app</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <!-- Category Filter -->
+                <div class="faq-categories">
+                    <button class="category-btn active" data-category="all">All Questions</button>
+                    <button class="category-btn" data-category="general">General</button>
+                    <button class="category-btn" data-category="features">Features</button>
+                    <button class="category-btn" data-category="technical">Technical</button>
+                    <button class="category-btn" data-category="pricing">Pricing</button>
+                </div>
+
+                <!-- FAQ Items -->
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>What is Paperly?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly is the best "PDF maker app" that allows you to turn images into PDFs instantly. You can select photos from your gallery or scan paper documents using your camera, combine them into a single PDF file, and keep everything organized.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="features">
+                    <div class="faq-question">
+                        <h3>What features does Paperly offer?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly offers several powerful features including:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Smart image capture and scanning</li>
+                                <li>Advanced OCR text extraction</li>
+                                <li>AI-powered chat with PDF content</li>
+                                <li>Smart search functionality</li>
+                                <li>Instant PDF creation and sharing</li>
+                                <li>Quality settings for PDF output</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>How does the OCR feature work?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly uses advanced Optical Character Recognition (OCR) technology to extract text from images. Once you load your images, the app automatically processes them to recognize and extract text. You can then use the smart search feature to find specific words, which will be highlighted and automatically scroll to the search results.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="features">
+                    <div class="faq-question">
+                        <h3>Can I chat with my PDF documents?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Paperly includes an AI-powered "Chat with PDF" feature. You can ask questions about your PDF content, and the AI will reply based on the information extracted from your loaded images and documents. This makes it easy to quickly find information without manually searching through your documents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>What file formats does Paperly support?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly supports all common image formats including JPEG, PNG, HEIC, and more. You can import images from your photo library or capture new ones using your device's camera. The app then converts these images into high-quality PDF documents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>Is Paperly available for both iPhone and iPad?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Paperly is designed to work seamlessly on both iPhone and iPad. The app automatically adapts to your device's screen size and provides an optimized experience for both iOS and iPadOS. You can also use it on macOS for a complete cross-platform experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="pricing">
+                    <div class="faq-question">
+                        <h3>Is Paperly free to use?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly offers a free version with basic features. For advanced features like unlimited PDF creation, enhanced OCR, and priority support, you can upgrade to our premium subscription. Check the App Store for current pricing and subscription options.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <h3>Can I use Paperly offline?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Paperly works offline for most features. You can capture images, create PDFs, and manage your documents without an internet connection. Some advanced features like AI chat may require an internet connection for optimal performance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="features">
+                    <div class="faq-question">
+                        <h3>How do I share my PDFs?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Paperly makes sharing PDFs incredibly easy. Once you've created your PDF, you can share it via email, AirDrop, messaging apps, or save it to your device. The app also supports cloud storage services like iCloud, Dropbox, and Google Drive for seamless file management.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question">
+                        <h3>Is my data secure with Paperly?</h3>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Absolutely! Paperly prioritizes your privacy and data security. Your documents are processed locally on your device, and we don't store or access your personal files. The app works offline, ensuring your sensitive documents remain private and secure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/appIcon.png" alt="Paperly" class="footer-logo-img">
+                        <span>Paperly</span>
+                    </div>
+                    <p>Turn images into PDFs instantly. The best PDF maker app for iOS and iPadOS.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="presskit.html">Press Kit</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paperly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+
+            // Toggle FAQ answers
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Category filtering
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter FAQ items
+                    faqItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        
+                        if (category === 'all' || itemCategory === category) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
