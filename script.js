@@ -159,21 +159,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add loading animation for images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
-        // Check if image is already loaded
-        if (img.complete) {
-            img.style.opacity = '1';
-            img.style.transform = 'scale(1)';
-        } else {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-                this.style.transform = 'scale(1)';
-            });
-            
-            // Set initial state
-            img.style.opacity = '0';
-            img.style.transform = 'scale(0.95)';
-            img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        }
+        // Ensure images are visible by default
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+        img.style.display = 'block';
+        img.style.visibility = 'visible';
+        
+        // Add error handling
+        img.addEventListener('error', function() {
+            console.log('Image failed to load:', this.src);
+            this.style.display = 'none';
+            // Show fallback if available
+            const fallback = this.nextElementSibling;
+            if (fallback && fallback.style.display === 'none') {
+                fallback.style.display = 'block';
+            }
+        });
+        
+        // Add load success handling
+        img.addEventListener('load', function() {
+            console.log('Image loaded successfully:', this.src);
+            this.style.opacity = '1';
+            this.style.transform = 'scale(1)';
+        });
     });
 
     // Add ripple effect to buttons
